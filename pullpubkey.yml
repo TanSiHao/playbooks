@@ -1,11 +1,11 @@
 ---
-- name: Hello World!
+- name: SSH 
   hosts: all
   tasks:
   - name: Check SSH public key   
     command: /bin/cat $home_directory/.ssh/id_rsa.pub
     register: cat
     changed_when: False
-
+    
   - name: Print SSH public key
     debug: var=cat.stdout
