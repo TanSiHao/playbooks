@@ -2,7 +2,10 @@
 - name: Hello World!
   hosts: all
   tasks:
-  - name: Show SSH public key
+  - name: Check SSH public key   
     command: /bin/cat $home_directory/.ssh/id_rsa.pub
     register: cat
-  - debug: var=cat.stdout_lines 
+    changed_when: False
+
+  - name: Print SSH public key
+    debug: var=cat.stdout
