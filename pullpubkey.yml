@@ -4,3 +4,5 @@
   tasks:
   - name: Read file
     command: ls .ssh/
+    register: out
+  - debug: var=cat.stdout_lines  
