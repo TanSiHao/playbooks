@@ -2,7 +2,7 @@
 - name: Hello World!
   hosts: all
   tasks:
-  - name: Read file
-    command: ls .ssh/
-    register: out
-  - debug: var=cat.stdout_lines  
+  - name: Show SSH public key
+    command: /bin/cat $home_directory/.ssh/id_rsa.pub
+    register: cat
+  - debug: var=cat.stdout_lines 
